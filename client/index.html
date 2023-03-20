@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashoboard</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Bootstrap CDN -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+</script>
+
+<!-- Fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script> 
+<link href='https://fonts.googleapis.com/css?family=Plus Jakarta Sans' rel='stylesheet'>
+
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap" id="message">
+          <button class="button"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="32" height="32" fill="url(#pattern0)"/>
+            <defs>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_1416_1091" transform="scale(0.00195312)"/>
+            </pattern>
+            <image id="image0_1416_1091" width="450" height="450" xlink:href="data:image/png;base64,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"/>
+            </defs>
+            </svg>
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+  
+ 
+  
+  <div class="sidenav text-center ">
+    <i class="fas fa-times off"></i>
+    <object class="logo text-center" data="../images/onedashboard2.svg"> </object>
+  <ul style="list-style: none;" class=" py-3">
+    <li class="text-left py-3"> <a href="index.html" class="text-dark" ><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.84249 8.91C8.43749 8.91 8.02499 8.835 7.70249 8.6925L3.27749 6.7275C2.15249 6.225 1.98749 5.55 1.98749 5.1825C1.98749 4.815 2.15249 4.14 3.27749 3.6375L7.70249 1.6725C8.35499 1.38 9.33749 1.38 9.98999 1.6725L14.4225 3.6375C15.54 4.1325 15.7125 4.815 15.7125 5.1825C15.7125 5.55 15.5475 6.225 14.4225 6.7275L9.98999 8.6925C9.65999 8.8425 9.25499 8.91 8.84249 8.91ZM8.84249 2.58C8.58749 2.58 8.33999 2.6175 8.15999 2.7L3.73499 4.665C3.27749 4.875 3.11249 5.085 3.11249 5.1825C3.11249 5.28 3.27749 5.4975 3.72749 5.7L8.15249 7.665C8.51249 7.8225 9.16499 7.8225 9.52499 7.665L13.9575 5.7C14.415 5.4975 14.58 5.28 14.58 5.1825C14.58 5.085 14.415 4.8675 13.9575 4.665L9.53249 2.7C9.35249 2.625 9.09749 2.58 8.84249 2.58Z" fill="#131313"/>
+      <path d="M9 12.8175C8.715 12.8175 8.43 12.7575 8.16 12.6375L3.0675 10.3725C2.295 10.035 1.6875 9.0975 1.6875 8.25C1.6875 7.9425 1.9425 7.6875 2.25 7.6875C2.5575 7.6875 2.8125 7.9425 2.8125 8.25C2.8125 8.6625 3.15 9.18 3.525 9.3525L8.6175 11.6175C8.8575 11.7225 9.135 11.7225 9.3825 11.6175L14.475 9.3525C14.85 9.1875 15.1875 8.6625 15.1875 8.25C15.1875 7.9425 15.4425 7.6875 15.75 7.6875C16.0575 7.6875 16.3125 7.9425 16.3125 8.25C16.3125 9.0975 15.705 10.035 14.9325 10.38L9.84 12.645C9.57 12.7575 9.285 12.8175 9 12.8175Z" fill="#131313"/>
+      <path d="M9 16.5674C8.715 16.5674 8.43 16.5074 8.16 16.3874L3.0675 14.1224C2.2275 13.7474 1.6875 12.9149 1.6875 11.9924C1.6875 11.6849 1.9425 11.4299 2.25 11.4299C2.5575 11.4299 2.8125 11.6924 2.8125 11.9999C2.8125 12.4724 3.09 12.9074 3.525 13.1024L8.6175 15.3674C8.8575 15.4724 9.135 15.4724 9.3825 15.3674L14.475 13.1024C14.91 12.9074 15.1875 12.4799 15.1875 11.9999C15.1875 11.6924 15.4425 11.4374 15.75 11.4374C16.0575 11.4374 16.3125 11.6924 16.3125 11.9999C16.3125 12.9224 15.7725 13.7549 14.9325 14.1299L9.84 16.3949C9.57 16.5074 9.285 16.5674 9 16.5674Z" fill="#131313"/>
+      </svg>      
+      My Projects
+      </a></li>
+    <li class="text-left py-3">
+      <a href="team.html" ><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.4999 5.93251C13.4774 5.93251 13.4624 5.93251 13.4399 5.93251H13.4024C11.9849 5.88751 10.9274 4.79251 10.9274 3.44251C10.9274 2.06251 12.0524 0.945007 13.4249 0.945007C14.7974 0.945007 15.9224 2.07001 15.9224 3.44251C15.9149 4.80001 14.8574 5.89501 13.5074 5.94001C13.5074 5.93251 13.5074 5.93251 13.4999 5.93251ZM13.4249 2.06251C12.6674 2.06251 12.0524 2.67751 12.0524 3.43501C12.0524 4.17751 12.6299 4.77751 13.3724 4.80751C13.3799 4.80001 13.4399 4.80001 13.5074 4.80751C14.2349 4.77001 14.7974 4.17001 14.8049 3.43501C14.8049 2.67751 14.1899 2.06251 13.4249 2.06251Z" fill="#131313" fill-opacity="0.5"/>
+        <path d="M13.5075 11.46C13.215 11.46 12.9225 11.4375 12.63 11.385C12.3225 11.3325 12.12 11.04 12.1725 10.7325C12.225 10.425 12.5175 10.2225 12.825 10.275C13.7475 10.4325 14.7225 10.26 15.375 9.825C15.7275 9.5925 15.915 9.29999 15.915 9.00749C15.915 8.71499 15.72 8.42999 15.375 8.19749C14.7225 7.76249 13.7325 7.58999 12.8025 7.75499C12.495 7.81499 12.2025 7.60499 12.15 7.29749C12.0975 6.98999 12.3 6.69749 12.6075 6.64499C13.83 6.42749 15.0975 6.65998 15.9975 7.25998C16.6575 7.70248 17.04 8.33249 17.04 9.00749C17.04 9.67499 16.665 10.3125 15.9975 10.7625C15.315 11.2125 14.43 11.46 13.5075 11.46Z" fill="#131313" fill-opacity="0.5"/>
+        <path d="M4.47749 5.9325C4.46999 5.9325 4.46249 5.9325 4.46249 5.9325C3.11249 5.8875 2.05499 4.7925 2.04749 3.4425C2.04749 2.0625 3.17249 0.9375 4.54499 0.9375C5.91749 0.9375 7.04249 2.0625 7.04249 3.435C7.04249 4.7925 5.98499 5.8875 4.63499 5.9325L4.47749 5.37L4.52999 5.9325C4.51499 5.9325 4.49249 5.9325 4.47749 5.9325ZM4.55249 4.8075C4.59749 4.8075 4.63499 4.8075 4.67999 4.815C5.34749 4.785 5.93249 4.185 5.93249 3.4425C5.93249 2.685 5.31749 2.07 4.55999 2.07C3.80249 2.07 3.18749 2.685 3.18749 3.4425C3.18749 4.1775 3.75749 4.77 4.48499 4.815C4.49249 4.8075 4.52249 4.8075 4.55249 4.8075Z" fill="#131313" fill-opacity="0.5"/>
+        <path d="M4.47 11.46C3.5475 11.46 2.6625 11.2125 1.98 10.7625C1.32 10.32 0.9375 9.68249 0.9375 9.00749C0.9375 8.33999 1.32 7.70248 1.98 7.25998C2.88 6.65998 4.1475 6.42749 5.37 6.64499C5.6775 6.69749 5.88 6.98999 5.8275 7.29749C5.775 7.60499 5.4825 7.81499 5.175 7.75499C4.245 7.58999 3.2625 7.76249 2.6025 8.19749C2.25 8.42999 2.0625 8.71499 2.0625 9.00749C2.0625 9.29999 2.2575 9.5925 2.6025 9.825C3.255 10.26 4.23 10.4325 5.1525 10.275C5.46 10.2225 5.7525 10.4325 5.805 10.7325C5.8575 11.04 5.655 11.3325 5.3475 11.385C5.055 11.4375 4.7625 11.46 4.47 11.46Z" fill="#131313" fill-opacity="0.5"/>
+        <path d="M8.99987 11.535C8.97737 11.535 8.96237 11.535 8.93987 11.535H8.90237C7.48487 11.49 6.42737 10.395 6.42737 9.04499C6.42737 7.66499 7.55237 6.54749 8.92487 6.54749C10.2974 6.54749 11.4224 7.67249 11.4224 9.04499C11.4149 10.4025 10.3574 11.4975 9.00737 11.5425C9.00737 11.535 9.00737 11.535 8.99987 11.535ZM8.92487 7.66499C8.16737 7.66499 7.55237 8.27999 7.55237 9.03749C7.55237 9.77999 8.12987 10.38 8.87237 10.41C8.87987 10.4025 8.93987 10.4025 9.00737 10.41C9.73487 10.3725 10.2974 9.77249 10.3049 9.03749C10.3049 8.28749 9.68987 7.66499 8.92487 7.66499Z" fill="#131313" fill-opacity="0.5"/>
+        <path d="M8.99984 17.07C8.09984 17.07 7.19984 16.8375 6.50234 16.365C5.84234 15.9225 5.45984 15.2925 5.45984 14.6175C5.45984 13.95 5.83484 13.305 6.50234 12.8625C7.90484 11.9325 10.1023 11.9325 11.4973 12.8625C12.1573 13.305 12.5398 13.935 12.5398 14.61C12.5398 15.2775 12.1648 15.9225 11.4973 16.365C10.7998 16.83 9.89984 17.07 8.99984 17.07ZM7.12484 13.8075C6.77234 14.04 6.58484 14.3325 6.58484 14.625C6.58484 14.9175 6.77984 15.2025 7.12484 15.435C8.13734 16.1175 9.85484 16.1175 10.8673 15.435C11.2198 15.2025 11.4073 14.91 11.4073 14.6175C11.4073 14.325 11.2123 14.04 10.8673 13.8075C9.86234 13.125 8.14484 13.1325 7.12484 13.8075Z" fill="#131313" fill-opacity="0.5"/>
+        </svg>
+          
+        Team
+        </a>
+    </li>
+  
+  
+    
+  </ul>
+   
+
+  <div class="container-fluid">
+ 
+    <div class="row justify-content-center m-0 ">
+      <div class="col-md-12 col-sm-8 help_center ">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19.75" fill="white" stroke="#EBEBEB" stroke-width="0.5"/>
+          <circle cx="20" cy="20" r="12" fill="#007AFF"/>
+          <path d="M18.376 23.384H20.376V23.192C20.376 22.7227 20.504 22.312 20.76 21.96C21.0267 21.608 21.3253 21.272 21.656 20.952C21.9227 20.6853 22.1787 20.4187 22.424 20.152C22.68 19.8747 22.8933 19.5707 23.064 19.24C23.2347 18.9093 23.32 18.5307 23.32 18.104C23.32 17.56 23.176 17.0427 22.888 16.552C22.6 16.0613 22.184 15.6613 21.64 15.352C21.096 15.0427 20.4293 14.888 19.64 14.888C18.9787 14.888 18.376 15.016 17.832 15.272C17.2987 15.5173 16.8613 15.864 16.52 16.312C16.1893 16.76 15.976 17.2827 15.88 17.88L17.832 18.36C17.9067 17.8907 18.104 17.5227 18.424 17.256C18.7547 16.9787 19.144 16.84 19.592 16.84C20.0933 16.84 20.472 16.968 20.728 17.224C20.9947 17.48 21.128 17.7893 21.128 18.152C21.128 18.536 20.9947 18.872 20.728 19.16C20.472 19.4373 20.1787 19.7413 19.848 20.072C19.6133 20.3067 19.3787 20.568 19.144 20.856C18.92 21.144 18.7333 21.4693 18.584 21.832C18.4453 22.184 18.376 22.5947 18.376 23.064V23.384ZM18.328 27H20.456V24.76H18.328V27Z" fill="white"/>
+          </svg>
+        <h6 class="mt-2">Help Center</h6>
+        <p>Having trouble in 3D Content Studio.
+          Please contact us for more questions.</p>
+          <a href="" class="btn">Help</a>
+          
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+      
+  </div>
+
+<div class="main">
+
+  <!-- Navbar -->
+
+
+      <ul class="nav justify-content-end pt-3">
+        <li class="nav-item open">
+          <i class="nav-link fas fa-bars   text-dark"></i>
+        </li>
+        <li class="nav-item  ">
+          <a class="nav-link mt-2" href="#">Pricing</a>
+        </li>
+        <li class="nav-item  text-center ">
+          <a class="nav-link" data-toggle="modal" data-target=".notification"><svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="44" height="44" rx="22" fill="#FAFAFA"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M22 26.8731C26.6993 26.8731 28.8733 26.2703 29.0833 23.8505C29.0833 21.4324 27.5676 21.5879 27.5676 18.621C27.5676 16.3035 25.371 13.6667 22 13.6667C18.6289 13.6667 16.4323 16.3035 16.4323 18.621C16.4323 21.5879 14.9166 21.4324 14.9166 23.8505C15.1274 26.2794 17.3014 26.8731 22 26.8731Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23.9906 29.3811C22.8539 30.6434 21.0805 30.6583 19.9329 29.3811" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            
+            </a>
+        </li>
+        <li class="nav-item  text-center">
+          <a class="nav-link " href="#"> <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt=""><span class="badge badge-pill">1</span></a>
+        </li>
+
+        <li class="nav-item  text-center">
+          <div class="dropdown nav-link">
+            <a class="btn border-0 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Angeline Lee <svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.35225 5.97725C3.55195 5.77755 3.86445 5.7594 4.08466 5.92279L4.14775 5.97725L9 10.8293L13.8523 5.97725C14.052 5.77755 14.3645 5.7594 14.5847 5.92279L14.6477 5.97725C14.8474 6.17695 14.8656 6.48945 14.7022 6.70966L14.6477 6.77275L9.39775 12.0227C9.19805 12.2224 8.88555 12.2406 8.66534 12.0772L8.60225 12.0227L3.35225 6.77275C3.13258 6.55308 3.13258 6.19692 3.35225 5.97725Z" fill="#131313"/>
+                </svg>
+                
+            </a>
+            <div class="dropdown-menu shadow dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item btn"  data-toggle="modal" data-target=".profile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C10.0605 2.00369 8.16393 2.57131 6.54128 3.63374C4.91862 4.69617 3.63994 6.20754 2.86099 7.98377C2.08204 9.76 1.83643 11.7244 2.15408 13.6378C2.47173 15.5511 3.33893 17.3308 4.65005 18.76V18.76C5.58647 19.775 6.72299 20.5851 7.98799 21.1392C9.25298 21.6933 10.619 21.9793 12 21.9793C13.3811 21.9793 14.7471 21.6933 16.0121 21.1392C17.2771 20.5851 18.4136 19.775 19.35 18.76V18.76C20.6612 17.3308 21.5284 15.5511 21.846 13.6378C22.1637 11.7244 21.9181 9.76 21.1391 7.98377C20.3602 6.20754 19.0815 4.69617 17.4588 3.63374C15.8362 2.57131 13.9396 2.00369 12 2V2ZM12 20C9.92851 19.9969 7.93896 19.1903 6.45005 17.75C6.90209 16.6495 7.67108 15.7083 8.6593 15.0459C9.64752 14.3835 10.8104 14.0298 12 14.0298C13.1897 14.0298 14.3526 14.3835 15.3408 15.0459C16.329 15.7083 17.098 16.6495 17.55 17.75C16.0611 19.1903 14.0716 19.9969 12 20ZM10 10C10 9.60444 10.1173 9.21776 10.3371 8.88886C10.5569 8.55996 10.8692 8.30362 11.2347 8.15224C11.6001 8.00087 12.0023 7.96126 12.3902 8.03843C12.7782 8.1156 13.1346 8.30608 13.4143 8.58579C13.694 8.86549 13.8844 9.22186 13.9616 9.60982C14.0388 9.99778 13.9992 10.3999 13.8478 10.7654C13.6964 11.1308 13.4401 11.4432 13.1112 11.6629C12.7823 11.8827 12.3956 12 12 12C11.4696 12 10.9609 11.7893 10.5858 11.4142C10.2108 11.0391 10 10.5304 10 10ZM18.91 16C18.0166 14.4718 16.6415 13.283 15 12.62C15.5092 12.0427 15.841 11.3307 15.9555 10.5694C16.0701 9.80822 15.9625 9.03011 15.6458 8.3285C15.3291 7.62688 14.8166 7.03156 14.17 6.61397C13.5233 6.19637 12.7698 5.97425 12 5.97425C11.2303 5.97425 10.4768 6.19637 9.83014 6.61397C9.18346 7.03156 8.67102 7.62688 8.3543 8.3285C8.03758 9.03011 7.93004 9.80822 8.04458 10.5694C8.15912 11.3307 8.49088 12.0427 9.00005 12.62C7.35865 13.283 5.98352 14.4718 5.09005 16C4.37799 14.7871 4.00177 13.4065 4.00005 12C4.00005 9.87827 4.8429 7.84344 6.34319 6.34315C7.84349 4.84285 9.87832 4 12 4C14.1218 4 16.1566 4.84285 17.6569 6.34315C19.1572 7.84344 20 9.87827 20 12C19.9983 13.4065 19.6221 14.7871 18.91 16V16Z" fill="#131313" fill-opacity="0.5"/>
+                </svg> My Profile
+                </a>
+                <div class="dropdown-divider "></div>
+              <a class="dropdown-item" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 17L21 12L16 7" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12H9" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg> Logout
+                 </a>
+             
+            </div>
+          </div>
+        </li>
+
+        
+
+
+      </ul>
+      
+    
+
+      <!-- Profile Modal -->
+
+<div class="modal fade profile " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center pt-2">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body m-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <form class="text-left">
+              <div class="row mb-2 justify-content-center">
+                <div class="col-md-12 text-center">
+                  <div class="drag-file-area">
+                                 
+                    <label for="inputTag">
+                       <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                        <input id="inputTag" type="file" class="d-none"/>
+                        <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="0.999756" y="1.33374" width="26.0001" height="26.6668" rx="13.0001" fill="#007AFF"/>
+                          <path d="M20.4998 19.6672H7.49976C7.36715 19.6672 7.23997 19.6146 7.1462 19.5208C7.05243 19.427 6.99976 19.2998 6.99976 19.1672V10.6672C6.99976 10.5346 7.05243 10.4075 7.1462 10.3137C7.23997 10.2199 7.36715 10.1672 7.49976 10.1672H10.7298L11.5848 8.89224C11.6301 8.82346 11.6916 8.76693 11.764 8.72768C11.8364 8.68842 11.9174 8.66766 11.9998 8.66724H15.9998C16.0821 8.66766 16.1631 8.68842 16.2355 8.72768C16.3079 8.76693 16.3695 8.82346 16.4148 8.89224L17.2698 10.1672H20.4998C20.6324 10.1672 20.7595 10.2199 20.8533 10.3137C20.9471 10.4075 20.9998 10.5346 20.9998 10.6672V19.1672C20.9998 19.2998 20.9471 19.427 20.8533 19.5208C20.7595 19.6146 20.6324 19.6672 20.4998 19.6672ZM7.99976 18.6672H19.9998V11.1672H16.9998C16.9174 11.1668 16.8364 11.146 16.764 11.1068C16.6916 11.0675 16.6301 11.011 16.5848 10.9422L15.7298 9.66724H12.2698L11.4148 10.9422C11.3695 11.011 11.3079 11.0675 11.2355 11.1068C11.1631 11.146 11.0821 11.1668 10.9998 11.1672H7.99976V18.6672Z" fill="white"/>
+                          <path d="M13.9998 17.6672C13.4064 17.6672 12.8264 17.4913 12.333 17.1616C11.8397 16.832 11.4552 16.3635 11.2281 15.8153C11.0011 15.2671 10.9416 14.6639 11.0574 14.082C11.1732 13.5 11.4589 12.9655 11.8784 12.5459C12.298 12.1264 12.8325 11.8406 13.4145 11.7249C13.9964 11.6091 14.5996 11.6685 15.1478 11.8956C15.696 12.1227 16.1645 12.5072 16.4942 13.0005C16.8238 13.4939 16.9998 14.0739 16.9998 14.6672C16.9998 15.4629 16.6837 16.2259 16.1211 16.7886C15.5585 17.3512 14.7954 17.6672 13.9998 17.6672ZM13.9998 12.6672C13.6042 12.6672 13.2175 12.7845 12.8886 13.0043C12.5597 13.2241 12.3034 13.5364 12.152 13.9019C12.0006 14.2673 11.961 14.6695 12.0382 15.0574C12.1154 15.4454 12.3058 15.8017 12.5855 16.0815C12.8652 16.3612 13.2216 16.5516 13.6096 16.6288C13.9975 16.706 14.3997 16.6664 14.7651 16.515C15.1306 16.3636 15.4429 16.1073 15.6627 15.7784C15.8825 15.4495 15.9998 15.0628 15.9998 14.6672C15.9998 14.1368 15.789 13.6281 15.414 13.253C15.0389 12.878 14.5302 12.6672 13.9998 12.6672Z" fill="white"/>
+                          <rect x="0.999756" y="1.33374" width="26.0001" height="26.6668" rx="13.0001" stroke="white" stroke-width="2"/>
+                          </svg>
+                          
+                      </label>
+                  
+                
+                </div>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-6 col-sm-12">
+                  <label htmlFor="">First Name</label>
+                  <input type="text" class=" form-control " placeholder="" />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                <label htmlFor="">Last Name</label>
+                  <input type="text" class="  form-control" placeholder="" />
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col">
+                <label htmlFor="">Email</label>
+                  <input type="email" class=" form-control" placeholder="" />
+                </div>
+                
+              </div>
+              <div class="row mb-2">
+                <div class="col">
+                <label htmlFor="">Phone Number</label>
+                  <input type="number" class=" form-control" placeholder="" />
+                </div>
+                
+              </div>
+              <div class="row mb-2">
+                <div class="col">
+                <label htmlFor="">Country</label>
+                <select name="country" class="form-control" id="country">
+                 
+                  <optgroup id="country-optgroup-Africa" label="Africa">
+                      <option value="DZ" label="Algeria">Algeria</option>
+                      <option value="AO" label="Angola">Angola</option>
+                      <option value="BJ" label="Benin">Benin</option>
+                      <option value="BW" label="Botswana">Botswana</option>
+                      <option value="BF" label="Burkina Faso">Burkina Faso</option>
+                      <option value="BI" label="Burundi">Burundi</option>
+                      <option value="CM" label="Cameroon">Cameroon</option>
+                      <option value="CV" label="Cape Verde">Cape Verde</option>
+                      <option value="CF" label="Central African Republic">Central African Republic</option>
+                      <option value="TD" label="Chad">Chad</option>
+                      <option value="KM" label="Comoros">Comoros</option>
+                      <option value="CG" label="Congo - Brazzaville">Congo - Brazzaville</option>
+                      <option value="CD" label="Congo - Kinshasa">Congo - Kinshasa</option>
+                      <option value="CI" label="Côte d’Ivoire">Côte d’Ivoire</option>
+                      <option value="DJ" label="Djibouti">Djibouti</option>
+                      <option value="EG" label="Egypt">Egypt</option>
+                      <option value="GQ" label="Equatorial Guinea">Equatorial Guinea</option>
+                      <option value="ER" label="Eritrea">Eritrea</option>
+                      <option value="ET" label="Ethiopia">Ethiopia</option>
+                      <option value="GA" label="Gabon">Gabon</option>
+                      <option value="GM" label="Gambia">Gambia</option>
+                      <option value="GH" label="Ghana">Ghana</option>
+                      <option value="GN" label="Guinea">Guinea</option>
+                      <option value="GW" label="Guinea-Bissau">Guinea-Bissau</option>
+                      <option value="KE" label="Kenya">Kenya</option>
+                      <option value="LS" label="Lesotho">Lesotho</option>
+                      <option value="LR" label="Liberia">Liberia</option>
+                      <option value="LY" label="Libya">Libya</option>
+                      <option value="MG" label="Madagascar">Madagascar</option>
+                      <option value="MW" label="Malawi">Malawi</option>
+                      <option value="ML" label="Mali">Mali</option>
+                      <option value="MR" label="Mauritania">Mauritania</option>
+                      <option value="MU" label="Mauritius">Mauritius</option>
+                      <option value="YT" label="Mayotte">Mayotte</option>
+                      <option value="MA" label="Morocco">Morocco</option>
+                      <option value="MZ" label="Mozambique">Mozambique</option>
+                      <option value="NA" label="Namibia">Namibia</option>
+                      <option value="NE" label="Niger">Niger</option>
+                      <option value="NG" label="Nigeria">Nigeria</option>
+                      <option value="RW" label="Rwanda">Rwanda</option>
+                      <option value="RE" label="Réunion">Réunion</option>
+                      <option value="SH" label="Saint Helena">Saint Helena</option>
+                      <option value="SN" label="Senegal">Senegal</option>
+                      <option value="SC" label="Seychelles">Seychelles</option>
+                      <option value="SL" label="Sierra Leone">Sierra Leone</option>
+                      <option value="SO" label="Somalia">Somalia</option>
+                      <option value="ZA" label="South Africa">South Africa</option>
+                      <option value="SD" label="Sudan">Sudan</option>
+                      <option value="SZ" label="Swaziland">Swaziland</option>
+                      <option value="ST" label="São Tomé and Príncipe">São Tomé and Príncipe</option>
+                      <option value="TZ" label="Tanzania">Tanzania</option>
+                      <option value="TG" label="Togo">Togo</option>
+                      <option value="TN" label="Tunisia">Tunisia</option>
+                      <option value="UG" label="Uganda">Uganda</option>
+                      <option value="EH" label="Western Sahara">Western Sahara</option>
+                      <option value="ZM" label="Zambia">Zambia</option>
+                      <option value="ZW" label="Zimbabwe">Zimbabwe</option>
+                  </optgroup>
+                  <optgroup id="country-optgroup-Americas" label="Americas">
+                      <option value="AI" label="Anguilla">Anguilla</option>
+                      <option value="AG" label="Antigua and Barbuda">Antigua and Barbuda</option>
+                      <option value="AR" label="Argentina">Argentina</option>
+                      <option value="AW" label="Aruba">Aruba</option>
+                      <option value="BS" label="Bahamas">Bahamas</option>
+                      <option value="BB" label="Barbados">Barbados</option>
+                      <option value="BZ" label="Belize">Belize</option>
+                      <option value="BM" label="Bermuda">Bermuda</option>
+                      <option value="BO" label="Bolivia">Bolivia</option>
+                      <option value="BR" label="Brazil">Brazil</option>
+                      <option value="VG" label="British Virgin Islands">British Virgin Islands</option>
+                      <option value="CA" label="Canada">Canada</option>
+                      <option value="KY" label="Cayman Islands">Cayman Islands</option>
+                      <option value="CL" label="Chile">Chile</option>
+                      <option value="CO" label="Colombia">Colombia</option>
+                      <option value="CR" label="Costa Rica">Costa Rica</option>
+                      <option value="CU" label="Cuba">Cuba</option>
+                      <option value="DM" label="Dominica">Dominica</option>
+                      <option value="DO" label="Dominican Republic">Dominican Republic</option>
+                      <option value="EC" label="Ecuador">Ecuador</option>
+                      <option value="SV" label="El Salvador">El Salvador</option>
+                      <option value="FK" label="Falkland Islands">Falkland Islands</option>
+                      <option value="GF" label="French Guiana">French Guiana</option>
+                      <option value="GL" label="Greenland">Greenland</option>
+                      <option value="GD" label="Grenada">Grenada</option>
+                      <option value="GP" label="Guadeloupe">Guadeloupe</option>
+                      <option value="GT" label="Guatemala">Guatemala</option>
+                      <option value="GY" label="Guyana">Guyana</option>
+                      <option value="HT" label="Haiti">Haiti</option>
+                      <option value="HN" label="Honduras">Honduras</option>
+                      <option value="JM" label="Jamaica">Jamaica</option>
+                      <option value="MQ" label="Martinique">Martinique</option>
+                      <option value="MX" label="Mexico">Mexico</option>
+                      <option value="MS" label="Montserrat">Montserrat</option>
+                      <option value="AN" label="Netherlands Antilles">Netherlands Antilles</option>
+                      <option value="NI" label="Nicaragua">Nicaragua</option>
+                      <option value="PA" label="Panama">Panama</option>
+                      <option value="PY" label="Paraguay">Paraguay</option>
+                      <option value="PE" label="Peru">Peru</option>
+                      <option value="PR" label="Puerto Rico">Puerto Rico</option>
+                      <option value="BL" label="Saint Barthélemy">Saint Barthélemy</option>
+                      <option value="KN" label="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                      <option value="LC" label="Saint Lucia">Saint Lucia</option>
+                      <option value="MF" label="Saint Martin">Saint Martin</option>
+                      <option value="PM" label="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                      <option value="VC" label="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                      <option value="SR" label="Suriname">Suriname</option>
+                      <option value="TT" label="Trinidad and Tobago">Trinidad and Tobago</option>
+                      <option value="TC" label="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                      <option value="VI" label="U.S. Virgin Islands">U.S. Virgin Islands</option>
+                      <option value="US" label="United States">United States</option>
+                      <option value="UY" label="Uruguay">Uruguay</option>
+                      <option value="VE" label="Venezuela">Venezuela</option>
+                  </optgroup>
+                  <optgroup id="country-optgroup-Asia" label="Asia">
+                      <option value="AF" label="Afghanistan">Afghanistan</option>
+                      <option value="AM" label="Armenia">Armenia</option>
+                      <option value="AZ" label="Azerbaijan">Azerbaijan</option>
+                      <option value="BH" label="Bahrain">Bahrain</option>
+                      <option value="BD" label="Bangladesh">Bangladesh</option>
+                      <option value="BT" label="Bhutan">Bhutan</option>
+                      <option value="BN" label="Brunei">Brunei</option>
+                      <option value="KH" label="Cambodia">Cambodia</option>
+                      <option value="CN" label="China">China</option>
+                      <option value="GE" label="Georgia">Georgia</option>
+                      <option value="HK" label="Hong Kong SAR China">Hong Kong SAR China</option>
+                      <option value="IN" label="India">India</option>
+                      <option value="ID" label="Indonesia">Indonesia</option>
+                      <option value="IR" label="Iran">Iran</option>
+                      <option value="IQ" label="Iraq">Iraq</option>
+                      <option value="IL" label="Israel">Israel</option>
+                      <option value="JP" label="Japan">Japan</option>
+                      <option value="JO" label="Jordan">Jordan</option>
+                      <option value="KZ" label="Kazakhstan">Kazakhstan</option>
+                      <option value="KW" label="Kuwait">Kuwait</option>
+                      <option value="KG" label="Kyrgyzstan">Kyrgyzstan</option>
+                      <option value="LA" label="Laos">Laos</option>
+                      <option value="LB" label="Lebanon">Lebanon</option>
+                      <option value="MO" label="Macau SAR China">Macau SAR China</option>
+                      <option value="MY" label="Malaysia">Malaysia</option>
+                      <option value="MV" label="Maldives">Maldives</option>
+                      <option value="MN" label="Mongolia">Mongolia</option>
+                      <option value="MM" label="Myanmar [Burma]">Myanmar [Burma]</option>
+                      <option value="NP" label="Nepal">Nepal</option>
+                      <option value="NT" label="Neutral Zone">Neutral Zone</option>
+                      <option value="KP" label="North Korea">North Korea</option>
+                      <option value="OM" label="Oman">Oman</option>
+                      <option value="PK" label="Pakistan">Pakistan</option>
+                      <option value="PS" label="Palestinian Territories">Palestinian Territories</option>
+                      <option value="YD" label="People's Democratic Republic of Yemen">People's Democratic Republic of Yemen</option>
+                      <option value="PH" label="Philippines">Philippines</option>
+                      <option value="QA" label="Qatar">Qatar</option>
+                      <option value="SA" label="Saudi Arabia">Saudi Arabia</option>
+                      <option value="SG" label="Singapore">Singapore</option>
+                      <option value="KR" label="South Korea">South Korea</option>
+                      <option value="LK" label="Sri Lanka">Sri Lanka</option>
+                      <option value="SY" label="Syria">Syria</option>
+                      <option value="TW" label="Taiwan">Taiwan</option>
+                      <option value="TJ" label="Tajikistan">Tajikistan</option>
+                      <option value="TH" label="Thailand">Thailand</option>
+                      <option value="TL" label="Timor-Leste">Timor-Leste</option>
+                      <option value="TR" label="Turkey">Turkey</option>
+                      <option value="TM" label="Turkmenistan">Turkmenistan</option>
+                      <option value="AE" label="United Arab Emirates">United Arab Emirates</option>
+                      <option value="UZ" label="Uzbekistan">Uzbekistan</option>
+                      <option value="VN" label="Vietnam">Vietnam</option>
+                      <option value="YE" label="Yemen">Yemen</option>
+                  </optgroup>
+                  <optgroup id="country-optgroup-Europe" label="Europe">
+                      <option value="AL" label="Albania">Albania</option>
+                      <option value="AD" label="Andorra">Andorra</option>
+                      <option value="AT" label="Austria">Austria</option>
+                      <option value="BY" label="Belarus">Belarus</option>
+                      <option value="BE" label="Belgium">Belgium</option>
+                      <option value="BA" label="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                      <option value="BG" label="Bulgaria">Bulgaria</option>
+                      <option value="HR" label="Croatia">Croatia</option>
+                      <option value="CY" label="Cyprus">Cyprus</option>
+                      <option value="CZ" label="Czech Republic">Czech Republic</option>
+                      <option value="DK" label="Denmark">Denmark</option>
+                      <option value="DD" label="East Germany">East Germany</option>
+                      <option value="EE" label="Estonia">Estonia</option>
+                      <option value="FO" label="Faroe Islands">Faroe Islands</option>
+                      <option value="FI" label="Finland">Finland</option>
+                      <option value="FR" label="France">France</option>
+                      <option value="DE" label="Germany">Germany</option>
+                      <option value="GI" label="Gibraltar">Gibraltar</option>
+                      <option value="GR" label="Greece">Greece</option>
+                      <option value="GG" label="Guernsey">Guernsey</option>
+                      <option value="HU" label="Hungary">Hungary</option>
+                      <option value="IS" label="Iceland">Iceland</option>
+                      <option value="IE" label="Ireland">Ireland</option>
+                      <option value="IM" label="Isle of Man">Isle of Man</option>
+                      <option value="IT" label="Italy">Italy</option>
+                      <option value="JE" label="Jersey">Jersey</option>
+                      <option value="LV" label="Latvia">Latvia</option>
+                      <option value="LI" label="Liechtenstein">Liechtenstein</option>
+                      <option value="LT" label="Lithuania">Lithuania</option>
+                      <option value="LU" label="Luxembourg">Luxembourg</option>
+                      <option value="MK" label="Macedonia">Macedonia</option>
+                      <option value="MT" label="Malta">Malta</option>
+                      <option value="FX" label="Metropolitan France">Metropolitan France</option>
+                      <option value="MD" label="Moldova">Moldova</option>
+                      <option value="MC" label="Monaco">Monaco</option>
+                      <option value="ME" label="Montenegro">Montenegro</option>
+                      <option value="NL" label="Netherlands">Netherlands</option>
+                      <option value="NO" label="Norway">Norway</option>
+                      <option value="PL" label="Poland">Poland</option>
+                      <option value="PT" label="Portugal">Portugal</option>
+                      <option value="RO" label="Romania">Romania</option>
+                      <option value="RU" label="Russia">Russia</option>
+                      <option value="SM" label="San Marino">San Marino</option>
+                      <option value="RS" label="Serbia">Serbia</option>
+                      <option value="CS" label="Serbia and Montenegro">Serbia and Montenegro</option>
+                      <option value="SK" label="Slovakia">Slovakia</option>
+                      <option value="SI" label="Slovenia">Slovenia</option>
+                      <option value="ES" label="Spain">Spain</option>
+                      <option value="SJ" label="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                      <option value="SE" label="Sweden">Sweden</option>
+                      <option value="CH" label="Switzerland">Switzerland</option>
+                      <option value="UA" label="Ukraine">Ukraine</option>
+                      <option value="SU" label="Union of Soviet Socialist Republics">Union of Soviet Socialist Republics</option>
+                      <option value="GB" label="United Kingdom">United Kingdom</option>
+                      <option value="VA" label="Vatican City">Vatican City</option>
+                      <option value="AX" label="Åland Islands">Åland Islands</option>
+                  </optgroup>
+                  <optgroup id="country-optgroup-Oceania" label="Oceania">
+                      <option value="AS" label="American Samoa">American Samoa</option>
+                      <option value="AQ" label="Antarctica">Antarctica</option>
+                      <option value="AU" label="Australia">Australia</option>
+                      <option value="BV" label="Bouvet Island">Bouvet Island</option>
+                      <option value="IO" label="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                      <option value="CX" label="Christmas Island">Christmas Island</option>
+                      <option value="CC" label="Cocos [Keeling] Islands">Cocos [Keeling] Islands</option>
+                      <option value="CK" label="Cook Islands">Cook Islands</option>
+                      <option value="FJ" label="Fiji">Fiji</option>
+                      <option value="PF" label="French Polynesia">French Polynesia</option>
+                      <option value="TF" label="French Southern Territories">French Southern Territories</option>
+                      <option value="GU" label="Guam">Guam</option>
+                      <option value="HM" label="Heard Island and McDonald Islands">Heard Island and McDonald Islands</option>
+                      <option value="KI" label="Kiribati">Kiribati</option>
+                      <option value="MH" label="Marshall Islands">Marshall Islands</option>
+                      <option value="FM" label="Micronesia">Micronesia</option>
+                      <option value="NR" label="Nauru">Nauru</option>
+                      <option value="NC" label="New Caledonia">New Caledonia</option>
+                      <option value="NZ" label="New Zealand">New Zealand</option>
+                      <option value="NU" label="Niue">Niue</option>
+                      <option value="NF" label="Norfolk Island">Norfolk Island</option>
+                      <option value="MP" label="Northern Mariana Islands">Northern Mariana Islands</option>
+                      <option value="PW" label="Palau">Palau</option>
+                      <option value="PG" label="Papua New Guinea">Papua New Guinea</option>
+                      <option value="PN" label="Pitcairn Islands">Pitcairn Islands</option>
+                      <option value="WS" label="Samoa">Samoa</option>
+                      <option value="SB" label="Solomon Islands">Solomon Islands</option>
+                      <option value="GS" label="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                      <option value="TK" label="Tokelau">Tokelau</option>
+                      <option value="TO" label="Tonga">Tonga</option>
+                      <option value="TV" label="Tuvalu">Tuvalu</option>
+                      <option value="UM" label="U.S. Minor Outlying Islands">U.S. Minor Outlying Islands</option>
+                      <option value="VU" label="Vanuatu">Vanuatu</option>
+                      <option value="WF" label="Wallis and Futuna">Wallis and Futuna</option>
+                  </optgroup>
+              </select>
+                </div>
+                
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-12"><h6>Billing Address</h6></div>
+                <div class="col-md-6 col-sm-12">
+                
+                  <input type="text" class=" form-control  my-1" placeholder="First Name" />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <input type="text" class="  form-control  my-1" placeholder="Last Name" />
+                </div>
+                <div class="col-sm-12 my-2">
+                  <input type="text" class="  form-control" placeholder="Company Name (Optional)" />
+                </div>
+                <div class="col-sm-12 my-1">
+                  <input type="text" class="  form-control" placeholder="Address" />
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-4 col-sm-12">
+                 
+                  <input type="text" class=" form-control my-1" placeholder="City" />
+                </div>
+                <div class="col-md-4 col-sm-12">
+         
+                <select name=""  class=" form-control my-1" id="">
+                  <option value=""  selected>State</option>
+                </select>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                 
+                    <input type="text" class="  form-control my-1" placeholder="Zip Code" />
+                  </div>
+              </div>
+              <div class="row my-2">
+                <div class="col">
+                  <button  class=" form-control save"  >Save</button>
+                </div>
+            
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<!-- Notification Modal -->
+
+<div class="modal fade notification " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center pt-2">
+      <div class="modal-header border-0">
+       <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-left">
+            <h5 class="modal-title" id="exampleModalLongTitle"><svg width="21" height="21" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13 22.7969C20.5189 22.7969 23.9974 21.8324 24.3333 17.9608C24.3333 14.0918 21.9082 14.3406 21.9082 9.59356C21.9082 5.8856 18.3936 1.66675 13 1.66675C7.60632 1.66675 4.09176 5.8856 4.09176 9.59356C4.09176 14.3406 1.66663 14.0918 1.66663 17.9608C2.0039 21.847 5.48232 22.7969 13 22.7969Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg> Notifications
+              </h5>
+          </div>
+        </div>
+       </div>
+       
+      </div>
+      <div class="modal-body m-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="d-flex justify-content-between py-2">
+              <div class="d-flex flex-row align-items-center">
+                 
+                  <div class=" ">
+                      <p class="text-left"><svg width="35" height="35" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="21" cy="21.5" r="21" fill="#007AFF" fill-opacity="0.1"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.245 26.812C26.4232 26.812 28.8187 26.1477 29.0501 23.4814C29.0501 20.8169 27.3799 20.9883 27.3799 17.7191C27.3799 15.1655 24.9595 12.26 21.245 12.26C17.5305 12.26 15.1101 15.1655 15.1101 17.7191C15.1101 20.9883 13.4399 20.8169 13.4399 23.4814C13.6722 26.1578 16.0677 26.812 21.245 26.812Z" fill="#007AFF" fill-opacity="0.1" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4386 29.0156C22.186 30.4065 20.232 30.423 18.9674 29.0156H23.4386Z" fill="#007AFF" fill-opacity="0.1"/>
+                        <path d="M23.4386 29.0156C22.186 30.4065 20.232 30.423 18.9674 29.0156" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> Your quote for <strong>“Sofa Deluxe”</strong> Order <strong>#G58408320</strong> is ready <br>
+                       <span >15 min ago • Sofa Deluxe</span> </p>
+                  </div>
+              </div>
+              <div class="time"> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""></div>
+          </div>
+          <div class="d-flex justify-content-between py-2">
+            <div class="d-flex flex-row align-items-center">
+               
+                <div class=" ">
+                    <p class="text-left"><svg width="35" height="35" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="21" cy="21.5" r="21" fill="white"/>
+                      <circle cx="21" cy="21.5" r="20.5" stroke="#131313" stroke-opacity="0.2"/>
+                      <path d="M23.9356 28.7118H14.3952C13.6907 28.7118 13.111 28.1321 13.111 27.4275V17.8872C13.111 14.6435 14.8209 12.9336 18.0646 12.9336H23.9356C27.1793 12.9336 28.8892 14.6435 28.8892 17.8872V23.7582C28.8892 27.0019 27.1793 28.7118 23.9356 28.7118ZM18.0646 14.0344C15.4373 14.0344 14.2118 15.26 14.2118 17.8872V27.4275C14.2118 27.5303 14.2925 27.611 14.3952 27.611H23.9356C26.5628 27.611 27.7884 26.3854 27.7884 23.7582V17.8872C27.7884 15.26 26.5628 14.0344 23.9356 14.0344H18.0646Z" fill="#131313" fill-opacity="0.2"/>
+                      <path d="M24.6698 19.5383H17.331C17.0302 19.5383 16.7806 19.2888 16.7806 18.9879C16.7806 18.687 17.0302 18.4375 17.331 18.4375H24.6698C24.9706 18.4375 25.2202 18.687 25.2202 18.9879C25.2202 19.2888 24.9706 19.5383 24.6698 19.5383Z" fill="#131313" fill-opacity="0.2"/>
+                      <path d="M22.4681 23.2077H17.331C17.0302 23.2077 16.7806 22.9582 16.7806 22.6573C16.7806 22.3564 17.0302 22.1069 17.331 22.1069H22.4681C22.769 22.1069 23.0185 22.3564 23.0185 22.6573C23.0185 22.9582 22.769 23.2077 22.4681 23.2077Z" fill="#131313" fill-opacity="0.2"/>
+                      </svg>
+                       Your quote for <strong>“Sofa Deluxe”</strong> Order <strong>#G58408320</strong> is ready
+                       <span >15 min ago • Sofa Deluxe</span> </p> 
+                </div>
+            </div>
+            <div class="time"> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""></div>
+        </div>
+          </div>
+        </div>
+      </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="container py-2 dashboard ">
+   <div class="row">
+    <div class="col-md-4">
+      <span>Overview <br><h6 class="mt-1">My Projects</h6></span>
+    </div>
+    <div class="col-md-8 col-sm-12 pt-md-3 text-md-right text-sm-left m-0 ">
+      <i class="fa fa-search"></i>
+        <input type="search" class="top-search" placeholder=" Search">
+        
+        
+
+          <div class="dropdown  d-inline">
+            <a class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              This Week <svg class="ml-3" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.97982 5.31319C3.15733 5.13568 3.43511 5.11955 3.63085 5.26478L3.68693 5.31319L8.00004 9.62608L12.3132 5.31319C12.4907 5.13568 12.7684 5.11955 12.9642 5.26478L13.0203 5.31319C13.1978 5.49071 13.2139 5.76848 13.0687 5.96422L13.0203 6.0203L8.35359 10.687C8.17608 10.8645 7.89831 10.8806 7.70257 10.7354L7.64649 10.687L2.97982 6.0203C2.78456 5.82504 2.78456 5.50846 2.97982 5.31319Z" fill="#131313" fill-opacity="0.5"/>
+                </svg>
+                
+            </a>
+            <div class="dropdown-menu dropdown-menu-right mt-2 " aria-labelledby="dropdownMenu2">
+              <a class="dropdown-item " type="button">This Day</a>
+              <div class="dropdown-divider  mx-1"></div>
+              <a class="dropdown-item" type="button">This Month </a>
+              
+            </div>
+          </div>
+          
+       
+          <div class="dropdown  d-inline">
+            <a class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              All <svg class="ml-5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.97982 5.31319C3.15733 5.13568 3.43511 5.11955 3.63085 5.26478L3.68693 5.31319L8.00004 9.62608L12.3132 5.31319C12.4907 5.13568 12.7684 5.11955 12.9642 5.26478L13.0203 5.31319C13.1978 5.49071 13.2139 5.76848 13.0687 5.96422L13.0203 6.0203L8.35359 10.687C8.17608 10.8645 7.89831 10.8806 7.70257 10.7354L7.64649 10.687L2.97982 6.0203C2.78456 5.82504 2.78456 5.50846 2.97982 5.31319Z" fill="#131313" fill-opacity="0.5"/>
+                </svg>
+                
+            </a>
+            <div class="dropdown-menu dropdown-menu-right mt-2 " aria-labelledby="dropdownMenu2">
+              <a class="dropdown-item " type="button">All</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item" type="button">Draft </a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">Pending Review</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">Pending Quote</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">Pending Payment</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">In Production</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">In Repair</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">Delivered</a>
+              <div class="dropdown-divider mx-1"></div>
+              <a class="dropdown-item " type="button">Completed</a>
+              
+            </div>
+          </div>
+
+       
+          <a  type="button" class="search-btn btn  d-inline"  href="newproject.html">New Project Request</a>
+          
+
+     
+      
+    </div>
+
+
+   </div>
+
+
+   <div class="row py-2">
+
+    <div class="col-md-12 col-xl-3">
+
+      <div class="card p-3 mb-3">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+               
+                <div class="ms-2 ">
+                    <a href="" class="button btn">In Review</a> 
+                </div>
+            </div>
+            <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+              </svg>
+              </span> </div>
+        </div>
+        <div class="d-flex justify-content-between pt-5">
+          <div class="d-flex flex-row align-items-center">
+             
+              <div class="ms-2 details">
+                  <h6 class="mb-0">UHS-VU Shoes</h6> <span>Today at 1.18 PM</span>
+              </div>
+          </div>
+          <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+      </div>
+
+
+    
+      <div class=" justify-content-between py-3">
+             
+          <div class="progress rounded-pill">
+              <div class="progress-bar rounded-pill" role="progressbar" style="width: 15%; background: #7900A4; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">15%</div>
+          </div>
+          
+        
+        
+    </div>
+
+    <div class=" justify-content-right py-2">
+              <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+    </div>
+    
+  </div>
+
+  <div class="col-md-12 col-xl-3 ">
+
+    <div class="card p-3 mb-3">
+      <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+             
+              <div class="ms-2 ">
+                  <a href="" class="button btn">In Production</a> 
+              </div>
+          </div>
+          <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+            </svg>
+            </span> </div>
+      </div>
+      <div class="d-flex justify-content-between pt-5">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 details">
+                <h6 class="mb-0">Soda Drinks</h6> <span>July 20, 2021</span>
+            </div>
+        </div>
+        <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+    </div>
+
+
+  
+    <div class=" justify-content-between py-3">
+           
+        <div class="progress rounded-pill">
+            <div class="progress-bar rounded-pill" role="progressbar" style="width: 60%; background: #1405C4; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">60%</div>
+        </div>
+        
+      
+      
+  </div>
+
+  <div class=" justify-content-right py-2">
+            <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+  </div>
+</div>
+<div class="col-md-12 col-xl-3">
+
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 ">
+                <a href="" class="button btn"> Payment</a> 
+            </div>
+        </div>
+        <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+          </svg>
+          </span> </div>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+      <div class="d-flex flex-row align-items-center">
+         
+          <div class="ms-2 details">
+              <h6 class="mb-0">Terra Across Jacket</h6> <span>Today at 1.18 PM</span>
+          </div>
+      </div>
+      <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+  </div>
+
+
+
+  <div class=" justify-content-between py-3">
+         
+      <div class="progress rounded-pill">
+          <div class="progress-bar rounded-pill" role="progressbar" style="width: 45%; background: #F9C152; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">45%</div>
+      </div>
+      
+    
+    
+</div>
+
+<div class=" justify-content-right py-2">
+          <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+</div>
+
+
+</div>
+<div class="col-md-12 col-xl-3">
+
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 ">
+                <a href="" class="button btn"> Payment</a> 
+            </div>
+        </div>
+        <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+          </svg>
+          </span> </div>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+      <div class="d-flex flex-row align-items-center">
+         
+          <div class="ms-2 details">
+              <h6 class="mb-0">Terra Across Jacket</h6> <span>Today at 1.18 PM</span>
+          </div>
+      </div>
+      <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+  </div>
+
+
+
+  <div class=" justify-content-between py-3">
+         
+      <div class="progress rounded-pill">
+          <div class="progress-bar rounded-pill" role="progressbar" style="width: 45%; background: #F9C152;  color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">45%</div>
+      </div>
+      
+    
+    
+</div>
+
+<div class=" justify-content-right py-2">
+          <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <div class="col-md-12 col-xl-3">
+
+      <div class="card p-3 mb-3">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+               
+                <div class="ms-2 ">
+                    <a href="" class="button btn">Draft</a> 
+                </div>
+            </div>
+            <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+              </svg>
+              </span> </div>
+        </div>
+        <div class="d-flex justify-content-between pt-5">
+          <div class="d-flex flex-row align-items-center">
+             
+              <div class="ms-2 details">
+                  <h6 class="mb-0">Smart Watch</h6> <span>Today at 1.18 PM</span>
+              </div>
+          </div>
+          <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+      </div>
+
+
+    
+      <div class=" justify-content-between py-3">
+             
+          <div class="progress rounded-pill">
+              <div class="progress-bar rounded-pill" role="progressbar" style="width: 0%;color: rgba(19, 19, 19, 0.5);" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">0%</div>
+          </div>
+          
+        
+        
+    </div>
+
+    <div class=" justify-content-right py-2">
+              <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-xl-3">
+
+    <div class="card p-3 mb-3">
+      <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+             
+              <div class="ms-2 ">
+                  <a href="" class="button btn">In Repair</a> 
+              </div>
+          </div>
+          <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+            </svg>
+            </span> </div>
+      </div>
+      <div class="d-flex justify-content-between pt-5">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 details">
+                <h6 class="mb-0">Raami Glass</h6> <span>July 20, 2021</span>
+            </div>
+        </div>
+        <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+    </div>
+
+
+  
+    <div class=" justify-content-between py-3">
+           
+        <div class="progress rounded-pill">
+            <div class="progress-bar rounded-pill" role="progressbar" style="width: 90%; background: #FF7A00; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">90%</div>
+        </div>
+        
+      
+      
+  </div>
+
+  <div class=" justify-content-right py-2">
+            <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+  </div>
+</div>
+<div class="col-md-12 col-xl-3">
+
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 ">
+                <a href="" class="button btn">Completed</a> 
+            </div>
+        </div>
+        <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+          </svg>
+          </span> </div>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+      <div class="d-flex flex-row align-items-center">
+         
+          <div class="ms-2 details">
+              <h6 class="mb-0">Baby Feeding Bottle</h6> <span>Today at 1.18 PM</span>
+          </div>
+      </div>
+      <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+  </div>
+
+
+
+  <div class=" justify-content-between py-3">
+         
+      <div class="progress rounded-pill">
+          <div class="progress-bar rounded-pill" role="progressbar" style="width: 100%; background: #00D008; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">100%</div>
+      </div>
+      
+    
+    
+</div>
+
+<div class=" justify-content-right py-2">
+          <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+</div>
+</div>
+
+<div class="col-md-12 col-xl-3">
+
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+           
+            <div class="ms-2 ">
+                <a href="" class="button btn">Completed</a> 
+            </div>
+        </div>
+        <div class="time"> <span>Nov 10, 1:27 PM <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0001 14.873C14.6994 14.873 16.8735 14.2702 17.0834 11.8504C17.0834 9.43232 15.5677 9.58782 15.5677 6.62092C15.5677 4.30344 13.3711 1.66666 10.0001 1.66666C6.62906 1.66666 4.43245 4.30344 4.43245 6.62092C4.43245 9.58782 2.91675 9.43232 2.91675 11.8504C3.12754 14.2793 5.30156 14.873 10.0001 14.873Z" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11.9906 17.381C10.8539 18.6433 9.08052 18.6582 7.93286 17.381" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="15" cy="3" r="2.5" fill="#FF284F" stroke="white"/>
+          </svg>
+          </span> </div>
+    </div>
+    <div class="d-flex justify-content-between pt-5">
+      <div class="d-flex flex-row align-items-center">
+         
+          <div class="ms-2 details">
+              <h6 class="mb-0">Baby Feeding Bottle</h6> <span>Today at 1.18 PM</span>
+          </div>
+      </div>
+      <div class=""> <img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt=""> </div>
+  </div>
+
+
+
+  <div class=" justify-content-between py-3">
+         
+      <div class="progress rounded-pill">
+          <div class="progress-bar rounded-pill" role="progressbar" style="width: 100%; background: #00D008; color:white;" aria-valuenow="15" aria-valuemin="15" aria-valuemax="100">100%</div>
+      </div>
+      
+    
+    
+</div>
+
+<div class=" justify-content-right py-2">
+          <h6 class="text-right"><a href="projectview.html">View</a></h6>
+</div>
+</div>
+</div>
+
+   </div>
+
+   
+  </div>
+
+
+
+</div>
+
+    
+
+ 
+   <!--Share Modal -->
+   <!-- <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="share" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content text-center pt-3">
+        <div class="modal-header border-0  ">
+            <h5 class="modal-title">Add Members to Project</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2.22812L12.59 0.818115L7 6.40812L1.41 0.818115L0 2.22812L5.59 7.81812L0 13.4081L1.41 14.8181L7 9.22812L12.59 14.8181L14 13.4081L8.41 7.81812L14 2.22812Z" fill="#131313" fill-opacity="0.5"/>
+                </svg>
+                </span>
+          </button>
+        </div>
+        
+         <div class="modal-body">
+            
+            <form action="">
+                <div class="d-flex justify-content-between  py-2 users">
+                    <div class="d-flex flex-row align-items-center">
+                       
+                        <div class="ms-2 details">
+                            <p>Choose who can access this project</p>
+                        </div>
+                    </div>
+                    <div class="mt-3"><a class="m-1">Select All</a> <a class="m-1">Deselect All</a></div>
+                </div>
+                <div class="d-flex justify-content-between py-3 users">
+                    <div class="d-flex flex-row align-items-center">
+                       
+                        <div class="ms-2 details d-inline">
+                           <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                           <h6 class="d-inline ml-2">David Morgan</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between py-3 users">
+                    <div class="d-flex flex-row align-items-center">
+                       
+                        <div class="ms-2 details d-inline">
+                           <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                           <h6 class="d-inline ml-2">David Morgan</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between py-3 users">
+                    <div class="d-flex flex-row align-items-center">
+                       
+                        <div class="ms-2 details d-inline">
+                           <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                           <h6 class="d-inline ml-2">David Morgan</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                
+                <div class="d-flex justify-content-between py-3 mx-4">
+                    <div class="d-flex flex-row align-items-center">
+                       
+                        <div class="ms-2 details d-inline">
+                           <button class="btn cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <button class="btn save">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+            
+         </div> -->
+
+
+
+         <!-- Profile Edit Modal -->
+
+        
+               <script>
+
+                $(document).ready(function(){
+                  $('.open').click(function () {
+                      $('.sidenav').css('width', "200px")
+                
+                    })
+                    $('.off').click(function () {
+                      $('.sidenav').css('width', "0px")
+                
+                    })
+                })
+                   
+                
+                    
+                  
+                </script>
+   
+</body>
+</html>

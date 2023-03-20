@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Bootstrap CDN -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+</script>
+
+<!-- Fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script> 
+<link href='https://fonts.googleapis.com/css?family=Plus Jakarta Sans' rel='stylesheet'>
+
+</head>
+<body>
+
+
+
+    <div class="container-fluid user-account" style="overflow: hidden;">
+
+        <div class="row justify-content-center ">
+
+            <!-- Register -->
+            <div class="col-md-12 col-lg-4 col-xl-4 register text-center">
+              
+                <div class="text-center m-0 p-0">
+                  <object class="logo text-center" data="../images/onedashboard2.svg" alt=""> </object>
+                </div>
+                    <h5 class="py-2">Hi, Welcome Back!</h5>
+                   
+                    
+
+                    <form class="text-left" style="margin-top: 10%;">
+                        <div class="row mb-2">
+                          <div class="col">
+                            <label htmlFor="">Email</label>
+                            <input type="email" class=" form-control " placeholder="Enter your  email" />
+                          </div>
+                        </div>
+                        <div class="row mb-2">
+                          <div class="col">
+                          <label htmlFor="">Password</label>
+                            <input type="password" class=" form-control" placeholder="Enter your password" />
+                          </div>
+                          
+                        </div>
+                        
+                        <div class="row ">
+                          <div class="col">
+                            <input type="button" class=" form-control signup" value="Sign In" />
+                          </div>
+                      
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                              <button href="" type="button" class=" form-control google text-center"  ><svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25.4998 13.0386C25.4998 11.9899 25.4147 11.2245 25.2305 10.4309H13.2549V15.1644H20.2843C20.1426 16.3407 19.3773 18.1123 17.6766 19.3027L17.6528 19.4612L21.4392 22.3945L21.7016 22.4207C24.1108 20.1956 25.4998 16.9218 25.4998 13.0386Z" fill="#4285F4"/>
+                                <path d="M13.2549 25.5104C16.6988 25.5104 19.5899 24.3765 21.7016 22.4208L17.6767 19.3028C16.5996 20.054 15.154 20.5783 13.2549 20.5783C9.88194 20.5783 7.01915 18.3533 5.99865 15.278L5.84906 15.2907L1.91184 18.3377L1.86035 18.4808C3.95783 22.6475 8.26623 25.5104 13.2549 25.5104Z" fill="#34A853"/>
+                                <path d="M5.99881 15.2777C5.72954 14.484 5.5737 13.6336 5.5737 12.755C5.5737 11.8763 5.72954 11.026 5.98464 10.2323L5.97751 10.0633L1.99094 6.96729L1.86051 7.02933C0.996037 8.75837 0.5 10.7 0.5 12.755C0.5 14.81 0.996037 16.7515 1.86051 18.4806L5.99881 15.2777Z" fill="#FBBC05"/>
+                                <path d="M13.2549 4.93193C15.65 4.93193 17.2656 5.96651 18.1869 6.83108L21.7866 3.31632C19.5758 1.26134 16.6988 0 13.2549 0C8.26623 0 3.95783 2.86279 1.86035 7.02942L5.98448 10.2324C7.01915 7.15702 9.88194 4.93193 13.2549 4.93193Z" fill="#EB4335"/>
+                                </svg> Sign In with Google
+                                </button>
+                            </div>
+                        
+                          </div>
+
+                        <p class="text-center pt-4">Already have an acount? <a href="register.html">Sign Up</a></p>
+                      </form>
+            </div>
+
+
+            <div class="col-md-12 col-lg-8 d-md-block d-none col-xl-8" style="background-image:url(../images/sideimage.jpeg); min-height: 100vh; background-repeat: no-repeat; background-size: cover;">
+              
+              
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
